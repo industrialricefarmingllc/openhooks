@@ -138,7 +138,8 @@ var registerHooks = (config) => {
 
 // index.ts
 var OpenhooksPlugin = async (ctx) => {
-  const config = loadConfig(ctx.worktree);
+  const root = ctx.worktree || ctx.directory || ctx.project?.root || process.cwd();
+  const config = loadConfig(root);
   return registerHooks(config);
 };
 var openhooks_default = OpenhooksPlugin;
