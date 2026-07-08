@@ -14,7 +14,7 @@ Add to `opencode.json`:
 
 ## Usage
 
-Create `~/.config/opencode/openhooks.yaml` (global) or `.opencode/openhooks.yaml` (project):
+Create `~/.config/opencode/hooks.yaml` (global) or `.opencode/hooks.yaml` (project):
 
 ```yaml
 hooks:
