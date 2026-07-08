@@ -1,0 +1,25 @@
+{
+  "name": "@nicerice/openhooks",
+  "description": "Native opencode plugin for config-driven hooks.",
+  "version": "0.0.1",
+  "type": "module",
+  "main": "./index.ts",
+  "exports": {
+    ".": {
+      "bun": "./index.ts",
+      "default": "./index.ts"
+    }
+  },
+  "files": [
+    "index.ts",
+    "src",
+    "README.md"
+  ],
+  "scripts": {
+    "test": "bun test"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "dependencies": {}
+}
