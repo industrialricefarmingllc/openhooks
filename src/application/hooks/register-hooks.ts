@@ -3,7 +3,7 @@ import { partitionEntries } from "./partition-entries.ts"
 import { createToolHandler } from "./create-tool-handler.ts"
 import { createSessionHandler } from "./create-session-handler.ts"
 
-export const registerHooks = (config: HooksConfig): Record<string, Function> => {
+export function registerHooks(config: HooksConfig) {
   const partitioned = partitionEntries(config)
   const hooks: Record<string, Function> = {}
 

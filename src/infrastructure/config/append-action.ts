@@ -1,7 +1,7 @@
 import type { BashAction } from "../../domain/types/bash-action.ts"
 import { parseBashLine } from "./parse-bash-line.ts"
 
-export const appendAction = (current: Record<string, unknown>, line: string): boolean => {
+export function appendAction(current: Record<string, unknown>, line: string) {
   const parsed = parseBashLine(line)
 
   if (!parsed) return false

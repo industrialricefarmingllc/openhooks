@@ -2,7 +2,7 @@ import type { HooksConfig } from "../../domain/types/hooks-config.ts"
 import type { HookEntry } from "../../domain/types/hook-entry.ts"
 import type { SessionHookEntry } from "../../domain/types/session-hook-entry.ts"
 
-export const partitionEntries = (config: HooksConfig) => {
+export function partitionEntries(config: HooksConfig) {
   const toolHooks: Record<string, (HookEntry & { tools?: string[] })[]> = {}
   const sessionHooks: SessionHookEntry[] = []
 

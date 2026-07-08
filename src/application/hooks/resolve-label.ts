@@ -1,3 +1,3 @@
-export const resolveLabel = (entry: { id?: string }, fallback: string): string => {
+export function resolveLabel(entry: { id?: string }, fallback: string) {
   return entry.id || fallback
 }

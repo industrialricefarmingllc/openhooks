@@ -1,4 +1,4 @@
-export const parseListLine = (line: string): { key: string; value: string } | null => {
+export function parseListLine(line: string) {
   const match = line.match(/^  - (\w+):\s*(.*)/)
 
   if (!match) return null

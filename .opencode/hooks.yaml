@@ -3,4 +3,4 @@ hooks:
     event: tool.execute.after
     tools: [write, edit, patch, apply_patch]
     actions:
-      - bash: "date >> /tmp/openhooks-test.log"
+      - bash: "bun x @nicerice/concision check"

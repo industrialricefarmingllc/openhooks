@@ -1,7 +1,7 @@
 import type { ExecResult } from "../../domain/types/exec-result.ts"
 import { exec } from "../../infrastructure/executor.ts"
 
-export const runActions = (actions: { bash: string }[], label: string): void => {
+export function runActions(actions: { bash: string }[], label: string) {
   for (const action of actions) {
     const result: ExecResult = exec(action.bash)
 

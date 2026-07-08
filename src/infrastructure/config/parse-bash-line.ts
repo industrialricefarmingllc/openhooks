@@ -1,4 +1,4 @@
-export const parseBashLine = (line: string): { bash: string } | null => {
+export function parseBashLine(line: string) {
   const match = line.match(/^\s+- bash:\s*(.*)/)
 
   if (!match) return null

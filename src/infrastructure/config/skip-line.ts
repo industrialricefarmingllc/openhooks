@@ -1,3 +1,3 @@
-export const isSkipLine = (line: string): boolean => {
+export function isSkipLine(line: string) {
   return line.trim() === "" || line.trimStart().startsWith("#")
 }

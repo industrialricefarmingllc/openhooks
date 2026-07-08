@@ -6,10 +6,7 @@ import { matchesTool } from "./matches-tool.ts"
 import { resolveLabel } from "./resolve-label.ts"
 import { runActions } from "./run-actions.ts"
 
-export const createToolHandler = (
-  event: string,
-  entries: (HookEntry & { tools?: string[] })[]
-) => {
+export function createToolHandler(event: string, entries: (HookEntry & { tools?: string[] })[]) {
   return async (input: ToolInput, output?: ToolOutput) => {
     for (const entry of entries) {
       if (!matchesTool(entry, input.tool)) continue

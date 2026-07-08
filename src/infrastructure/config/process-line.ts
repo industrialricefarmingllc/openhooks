@@ -3,11 +3,7 @@ import { parseListLine } from "./parse-list-line.ts"
 import { appendAction } from "./append-action.ts"
 import { applyProperty } from "./apply-property.ts"
 
-export const processLine = (
-  raw: string,
-  current: Record<string, unknown> | null,
-  hooks: Record<string, unknown>[]
-): Record<string, unknown> | null => {
+export function processLine(raw: string, current: Record<string, unknown> | null, hooks: Record<string, unknown>[]) {
   const line = raw.trimEnd()
 
   if (isSkipLine(line)) return current

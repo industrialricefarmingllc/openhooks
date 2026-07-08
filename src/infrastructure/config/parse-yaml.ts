@@ -4,7 +4,7 @@ import type { SessionHookEntry } from "../../domain/types/session-hook-entry.ts"
 import { processLine } from "./process-line.ts"
 import { finalizeGroup } from "./finalize-group.ts"
 
-export const parseYaml = (text: string): HooksConfig => {
+export function parseYaml(text: string) {
   const hooks: (HookEntry | SessionHookEntry)[] = []
   let current: Record<string, unknown> | null = null
 

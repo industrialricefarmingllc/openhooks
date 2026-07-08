@@ -1,7 +1,7 @@
 import { parsePropLine } from "./parse-prop-line.ts"
 import { parseToolsList } from "./parse-tools-list.ts"
 
-export const applyProperty = (current: Record<string, unknown>, line: string): void => {
+export function applyProperty(current: Record<string, unknown>, line: string) {
   const prop = parsePropLine(line)
 
   if (!prop) return
