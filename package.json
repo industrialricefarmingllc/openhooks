@@ -1,6 +1,6 @@
 {
   "name": "@nicerice/openhooks",
-  "description": "Native opencode plugin for config-driven hooks.",
+  "description": "[opencode plugin] Hook any command into opencode's tool events.",
   "version": "0.0.1",
   "type": "module",
   "main": "./index.ts",
