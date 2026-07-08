@@ -1,5 +1,6 @@
 import { spawnSync } from "node:child_process"
-import type { ExecResult } from "../domain/types.ts"
+
+import type { ExecResult } from "../domain/types/exec-result.ts"
 
 export const exec = (command: string, timeoutMs = 60_000): ExecResult => {
   const result = spawnSync(command, {

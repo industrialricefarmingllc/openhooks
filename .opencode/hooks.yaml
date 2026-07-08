@@ -1,0 +1,6 @@
+hooks:
+  - id: openhooks-test
+    event: tool.execute.after
+    tools: [write, edit, patch, apply_patch]
+    actions:
+      - bash: "date >> /tmp/openhooks-test.log"
