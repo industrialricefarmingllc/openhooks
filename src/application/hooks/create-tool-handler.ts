@@ -15,7 +15,7 @@ export function createToolHandler(event: string, entries: (HookEntry & { tools?:
         output.title = resolveLabel(entry, event as EventType)
       }
 
-      runActions(entry.actions, resolveLabel(entry, event as EventType))
+      runActions(entry.actions, output)
     }
   }
 }
