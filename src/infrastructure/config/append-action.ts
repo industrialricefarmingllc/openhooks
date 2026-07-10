@@ -6,7 +6,8 @@ export function appendAction(current: Record<string, unknown>, line: string) {
 
   if (!parsed) return false
 
-  if (!Array.isArray(current.actions)) current.actions = []
+  const missingActions = !Array.isArray(current.actions)
+  if (missingActions) current.actions = []
 
   ;(current.actions as BashAction[]).push(parsed)
 

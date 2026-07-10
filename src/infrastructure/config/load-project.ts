@@ -4,8 +4,9 @@ import { parseYaml } from "./parse-yaml.ts"
 
 export function loadProject(worktree: string) {
   const projectPath = join(worktree, ".opencode/hooks.yaml")
+  const hasProjectConfig = existsSync(projectPath)
 
-  if (!existsSync(projectPath)) return []
+  if (!hasProjectConfig) return []
 
   const parsed = parseYaml(readFileSync(projectPath, "utf-8"))
 

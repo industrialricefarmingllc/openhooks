@@ -7,13 +7,18 @@ export function partitionEntries(config: HooksConfig) {
   const sessionHooks: SessionHookEntry[] = []
 
   for (const entry of config.hooks) {
-    if (entry.event.startsWith("tool.")) {
-      if (!toolHooks[entry.event]) toolHooks[entry.event] = []
+    const isToolEvent = entry.event.startsWith("tool.")
+
+    if (isToolEvent) {
+      const hasBucket = toolHooks[entry.event]
+      if (!hasBucket) toolHooks[entry.event] = []
 
       toolHooks[entry.event]!.push(entry as HookEntry & { tools?: string[] })
-    } else if (entry.event.startsWith("session.")) {
-      sessionHooks.push(entry as SessionHookEntry)
+      continue
     }
+
+    const isSessionEvent = entry.event.startsWith("session.")
+    if (isSessionEvent) sessionHooks.push(entry as SessionHookEntry)
   }
 
   return { toolHooks, sessionHooks }

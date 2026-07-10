@@ -1,12 +1,12 @@
-import { isSkipLine } from "./skip-line.ts"
 import { parseListLine } from "./parse-list-line.ts"
 import { appendAction } from "./append-action.ts"
 import { applyProperty } from "./apply-property.ts"
 
 export function processLine(raw: string, current: Record<string, unknown> | null, hooks: Record<string, unknown>[]) {
   const line = raw.trimEnd()
+  const isSkipLine = line.trim() === "" || line.trimStart().startsWith("#")
 
-  if (isSkipLine(line)) return current
+  if (isSkipLine) return current
 
   const parsed = parseListLine(line)
 
@@ -18,7 +18,8 @@ export function processLine(raw: string, current: Record<string, unknown> | null
 
   if (!current) return current
 
-  if (appendAction(current, line)) return current
+  const actionHandled = appendAction(current, line)
+  if (actionHandled) return current
 
   applyProperty(current, line)
 

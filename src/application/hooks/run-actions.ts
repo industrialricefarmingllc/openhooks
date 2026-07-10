@@ -5,6 +5,7 @@ export function runActions(actions: { bash: string }[], label?: { output?: strin
     const result = exec(action.bash)
     const msg = result.stderr || result.stdout || ""
     if (label) label.output = msg
-    if (result.exitCode !== 0) throw new Error(msg)
+    const failed = result.exitCode !== 0
+    if (failed) throw new Error(msg)
   }
 }

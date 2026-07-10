@@ -6,11 +6,20 @@ export function applyProperty(current: Record<string, unknown>, line: string) {
 
   if (!prop) return
 
-  if (prop.key === "tools" && prop.value.startsWith("[")) {
+  const isToolsList = prop.key === "tools" && prop.value.startsWith("[")
+
+  if (isToolsList) {
     current.tools = parseToolsList(prop.value)
-  } else if (prop.key === "actions") {
-    if (!Array.isArray(current.actions)) current.actions = []
-  } else {
-    current[prop.key] = prop.value
+    return
   }
+
+  const isActionsKey = prop.key === "actions"
+
+  if (isActionsKey) {
+    const missingActions = !Array.isArray(current.actions)
+    if (missingActions) current.actions = []
+    return
+  }
+
+  current[prop.key] = prop.value
 }

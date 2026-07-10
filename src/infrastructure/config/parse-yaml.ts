@@ -2,7 +2,6 @@ import type { HooksConfig } from "../../domain/types/hooks-config.ts"
 import type { HookEntry } from "../../domain/types/hook-entry.ts"
 import type { SessionHookEntry } from "../../domain/types/session-hook-entry.ts"
 import { processLine } from "./process-line.ts"
-import { finalizeGroup } from "./finalize-group.ts"
 
 export function parseYaml(text: string) {
   const hooks: (HookEntry | SessionHookEntry)[] = []
@@ -12,7 +11,7 @@ export function parseYaml(text: string) {
     current = processLine(raw, current, hooks)
   }
 
-  finalizeGroup(current, hooks)
+  if (current) hooks.push(current)
 
   return { hooks }
 }

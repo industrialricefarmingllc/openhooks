@@ -5,7 +5,8 @@ import { runActions } from "./run-actions.ts"
 
 export function createSessionHandler(entries: SessionHookEntry[]) {
   return (input: EventInput) => entries.forEach(e => {
-    if (input.event.type !== e.event && input.event.type !== e.event.replace("session.", "")) return
+    const isRelevantEvent = input.event.type === e.event || input.event.type === e.event.replace("session.", "")
+    if (!isRelevantEvent) return
     try { runActions(e.actions) } catch {}
   })
 }

@@ -9,9 +9,9 @@ export function exec(command: string, timeoutMs = 60_000) {
     timeout: timeoutMs,
   })
 
-  return {
-    exitCode: result.status ?? 1,
-    stdout: (result.stdout || "").trim(),
-    stderr: (result.stderr || "").trim(),
-  }
+  const exitCode = result.status ?? 1
+  const stdout = (result.stdout || "").trim()
+  const stderr = (result.stderr || "").trim()
+
+  return { exitCode, stdout, stderr }
 }

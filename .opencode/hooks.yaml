@@ -1,5 +1,5 @@
 hooks:
-  - id: openhooks-test
+  - id: concision
     event: tool.execute.after
     tools: [write, edit, patch, apply_patch]
     actions:

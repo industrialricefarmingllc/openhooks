@@ -11,7 +11,8 @@ export function registerHooks(config: HooksConfig) {
     hooks[event] = createToolHandler(event, entries)
   }
 
-  if (partitioned.sessionHooks.length > 0) {
+  const hasSessionHooks = partitioned.sessionHooks.length > 0
+  if (hasSessionHooks) {
     hooks.event = createSessionHandler(partitioned.sessionHooks)
   }
 
