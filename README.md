@@ -1,6 +1,6 @@
 # @nicerice/openhooks
 
-YAML based native hooks for OpenCode. Runs bash commands on tool and session lifecycle events. Reports failures via the native OpenCode plugin API (throws) instead of injected messages, so the model sees tool errors naturally without assuming them as another prompt.
+YAML based native hooks for OpenCode. Run commands whenever the agent is done doing something, like editing a file. Reports failures via the native OpenCode plugin API (throws) instead of injected messages, so the model sees tool errors naturally without assuming them as another prompt.
 
 ## Install
 
