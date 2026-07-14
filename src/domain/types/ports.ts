@@ -3,3 +3,7 @@ export type ExecResult = {
   stdout: string
   stderr: string
 }
+
+export interface ActionRunner {
+  run(command: string): ExecResult
+}

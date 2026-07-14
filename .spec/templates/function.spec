@@ -1,6 +1,6 @@
 ---
 paths: **/*.ts
-exclude: **/types/*.ts, **/*.d.ts
+exclude: index.ts, **/types/*.ts, **/*.d.ts
 ---
 
 **[import]

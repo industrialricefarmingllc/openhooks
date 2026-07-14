@@ -4,24 +4,11 @@ import { applyProperty } from "./apply-property.ts"
 
 export function processLine(raw: string, current: Record<string, unknown> | null, hooks: Record<string, unknown>[]) {
   const line = raw.trimEnd()
-  const isSkipLine = line.trim() === "" || line.trimStart().startsWith("#")
-
-  if (isSkipLine) return current
-
+  if (!line.trim() || line.trimStart().startsWith("#")) return current
   const parsed = parseListLine(line)
-
-  if (parsed) {
-    if (current) hooks.push(current)
-
-    return { [parsed.key]: parsed.value }
-  }
-
+  if (parsed) { current && hooks.push(current); return { [parsed.key]: parsed.value } }
   if (!current) return current
-
-  const actionHandled = appendAction(current, line)
-  if (actionHandled) return current
-
+  if (appendAction(current, line)) return current
   applyProperty(current, line)
-
   return current
 }
